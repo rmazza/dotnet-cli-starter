@@ -21,7 +21,7 @@ namespace CLI
             // Help
             if (args.Length == 0 || IsHelp(args[0]))
             {
-                //TODO: Print Help
+                CommandUtility.PrintCliHelp(CommandFactory.commands, _config);
             }
 
             // Version

@@ -2,20 +2,28 @@
 
 namespace CLI
 {
-    public class Command<T>: ICommandBase where T : ICommand, new()
+    public class Command<T> : ICommandBase where T : ICommand, new()
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
+        private string _name;
+        private string _description;
+
+        public string Name => _name;
+        public string Description => _description;
 
         public Command(string name, string desc)
         {
-            Name = name;
-            Description = desc;
+            _name = name;
+            _description = desc;
         }
 
         public void Run(string[] args)
         {
-            new T().Run(args);
+            T instance = new T
+            {
+                HasOptions = args.Length > 1
+            };
+
+            instance.Run(args);
         }
     }
 }
