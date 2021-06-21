@@ -1,4 +1,5 @@
 ﻿using CLI.Interfaces;
+using System;
 
 namespace CLI
 {
@@ -12,7 +13,11 @@ namespace CLI
         public string LongOption => _longOption;
         public string Description => _description;
 
-        public CommandOption(string shortOption, string longOption, string description)
+        public CommandOption(
+            string shortOption, 
+            string longOption, 
+            string description,
+            Func<bool> func)
         {
             _shortOption = shortOption;
             _longOption = longOption;

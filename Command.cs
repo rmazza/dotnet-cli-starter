@@ -18,12 +18,7 @@ namespace CLI
 
         public void Run(string[] args)
         {
-            T instance = new T
-            {
-                HasOptions = args.Length > 1
-            };
-
-            instance.Run(args);
+            new T().Run(args);
         }
     }
 }

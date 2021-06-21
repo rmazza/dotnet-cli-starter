@@ -9,7 +9,7 @@ namespace CLI
     {
         public static List<ICommandBase> commands = new List<ICommandBase>
         {
-            new Command<PingCommand>("ping", "return pong")
+            new Command<PingCommand>("ping", "prints pong")
         };
 
         public static ICommandBase GetCommand(string commandArgument)

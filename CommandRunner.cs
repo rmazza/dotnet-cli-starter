@@ -19,7 +19,7 @@ namespace CLI
         public void Start(string[]  args)
         {
             // Help
-            if (args.Length == 0 || IsHelp(args[0]))
+            if (args.Length == 0 || CommandUtility.IsHelp(args[0]))
             {
                 CommandUtility.PrintCliHelp(CommandFactory.commands, _config);
             }
@@ -44,12 +44,6 @@ namespace CLI
             return firstArg.ToLower().Equals("-v") || firstArg.ToLower().Equals("--version");
         }
 
-        public bool IsHelp(string firstArg)
-        {
-            return string.IsNullOrWhiteSpace(firstArg) 
-                || firstArg.ToLower() == "-h" 
-                || firstArg.ToLower() == "--help";
-        }
 
         public void HandleException(Exception ex)
         {

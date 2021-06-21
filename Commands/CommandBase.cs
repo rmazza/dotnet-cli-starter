@@ -7,6 +7,8 @@ namespace CLI.Commands
 {
     internal class CommandBase
     {
+        internal bool HasOptions { get; set; }
+
         internal void PrintCommandHelp(string command, IList<ICommandOption> options)
         {
             var sb = new StringBuilder();

@@ -9,19 +9,21 @@ namespace CLI.Commands
     {
         private List<ICommandOption> options = new List<ICommandOption>
         {
-            { new CommandOption("-p", "--p", "test option") }
+            { new CommandOption("-p", "--p", "test command to ensure proper hook up.", pCommand) }
         };
-
-        public bool HasOptions { get; set; }
 
         public void Run(string[] args)
         {
-            if(!HasOptions)
+            //TODO: create method for checking help flag not just for first option
+            if (!HasOptions || args.IsHelp())
             {
                 PrintCommandHelp("ping", options);
                 return;
             }
         }
+
+        private static Func<bool> pCommand = () => true;
+
 
         public void Print()
         {
