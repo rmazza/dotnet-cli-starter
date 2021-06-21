@@ -1,6 +1,5 @@
 ﻿using CLI.Interfaces;
 using System.Linq;
-using System.CommandLine.Parser;
 
 namespace CLI
 {
@@ -15,14 +14,5 @@ namespace CLI
         {
             return str.Any(x => x.ToLower().Equals("-h") || x.ToLower().Equals("--help"));
         }
-    }
-
-    public static class ParserExtensions
-    {
-        public static ParseResult ParseFrom(
-            this Parser parser,
-            string context,
-            string[] args) =>
-            parser.Parse(context.Split(' ').Concat(args).ToArray());
     }
 }

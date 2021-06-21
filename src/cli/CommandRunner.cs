@@ -19,7 +19,7 @@ namespace CLI
         public void Start(string[]  args)
         {
             // Help
-            if (args.Length == 0 || CommandUtility.IsHelp(args[0]))
+            if (args.Length == 0)
             {
                 CommandUtility.PrintCliHelp(CommandFactory.commands, _config);
             }
